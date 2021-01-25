@@ -1,5 +1,5 @@
 class Api
-  
+  APIID= '00328c95831e76b0eb4108eced3ceb89'
 
   def self.search(params)
     uri = URI.parse("https://developers.zomato.com/api/v2.1/search?entity_id=#{params[:entity_id]}&entity_type=subzone&count=100&cuisines=#{array_to_url(params[:cuisine_id])}&sort=rating&order=desc")
