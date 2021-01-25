@@ -1,0 +1,6 @@
+<%= form_for :search, url: '/restaurants', method: 'post' do |f| %>
+  <%= f.collection_select :entity_id, @neighborhoods, :entity_id, :name %>
+  <%= f.collection_select :cuisine_id, @cuisines, :cuisine_id, :name %>
+
+  <%= f.submit  %>
+<% end %>
