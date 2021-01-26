@@ -56,6 +56,24 @@ class Api
     JSON.parse(response.body)["cuisines"]
   end
 
+  def self.city_request(city)
+
+    uri = URI.parse("https://developers.zomato.com/api/v2.1/cities?q=#{string_to_url(city)}")
+    request = Net::HTTP::Get.new(uri)
+    request["Accept"] = "application/json"
+    request["User-Key"] = APIID
+
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
+    # response.code
+    JSON.parse(response.body)["location_suggestions"]
+  end
+
   def self.array_to_url(array)
     if array.kind_of?(Array)
       array.join("%2C")
