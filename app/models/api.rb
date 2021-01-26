@@ -37,9 +37,9 @@ class Api
     JSON.parse(response.body)["location_suggestions"].first
   end
 
-  def self.cuisine_request
+  def self.cuisine_request(city_id=292)
 
-    uri = URI.parse("https://developers.zomato.com/api/v2.1/cuisines?city_id=292")
+    uri = URI.parse("https://developers.zomato.com/api/v2.1/cuisines?city_id=#{city_id.to_s}")
     request = Net::HTTP::Get.new(uri)
     request["Accept"] = "application/json"
     request["User-Key"] = APIID
