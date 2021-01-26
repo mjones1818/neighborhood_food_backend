@@ -45,8 +45,9 @@ Neighborhood.all.each do |neighborhood|
     restaurant_hash[:average_cost_for_two] = restaurant["restaurant"]["average_cost_for_two"]
     restaurant_hash[:aggregate_rating] = restaurant["restaurant"]["user_rating"]["aggregate_rating"]
     restaurant_hash[:all_reviews_count] = restaurant["restaurant"]["all_reviews_count"]
+    restaurant_hash[:thumb] = restaurant["restaurant"]["thumb"]
+    restaurant_hash[:featured_image] = restaurant["restaurant"]["featured_image"]
     restaurant_hash[:neighborhood] = neighborhood
     final_restaurant = Restaurant.create(restaurant_hash)
   end
-
 end
