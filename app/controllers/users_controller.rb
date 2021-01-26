@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def new 
-    byebug
+    
     # render json:
   end
 end

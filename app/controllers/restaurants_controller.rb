@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
 
   def index
+    byebug
     restaurants = Restaurant.all
     render json: restaurants
   end
