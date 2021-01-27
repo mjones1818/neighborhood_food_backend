@@ -19,7 +19,7 @@ cuisines.each do |cuisine|
   new_cuisine = Cuisine.create(cuisine_hash)
 end
 
-neighborhood_list = ["logan square chicago", "ukrainian village"]
+neighborhood_list = ["logan square chicago", "ukrainian village", "roscoe village chicago", 'west loop chicago', 'uptown chicago']
 neighborhood_list.each do |neighborhood|
   new_neighborhood = Api.neighborhood_request(neighborhood)
   neighborhood_hash = {}

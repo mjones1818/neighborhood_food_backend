@@ -1,8 +1,13 @@
 class RestaurantsController < ApplicationController
 
   def index
-    byebug
-    restaurants = Restaurant.all
+    search_params = {}
+    result = params.reject {|k,v| k.exclude?('_')}
+    params.each do |k,v|
+      search_params[k.to_sym] = v.to_sym
+    end
+    restaurants = Api.search(search_params)
+    Restaurant.create_restaurants(restaurants)
     render json: restaurants
   end
 
