@@ -29,25 +29,25 @@ neighborhood_list.each do |neighborhood|
   Neighborhood.create(neighborhood_hash)
 end
 
-Neighborhood.all.each do |neighborhood|
-  restaurant_hash = {}
-  test_cuisine = Cuisine.find_by_name("Asian")
-  search ={}
-  search[:entity_id] = neighborhood.entity_id
-  search[:cuisine_id] = test_cuisine.cuisine_id
-  new_restaurant = Api.search(search)
-  new_restaurant.each do |restaurant|
-    restaurant_hash[:url] = restaurant["restaurant"]["url"]
-    restaurant_hash[:name] = restaurant["restaurant"]["name"]
-    restaurant_hash[:address] = restaurant["restaurant"]["location"]["address"]
-    restaurant_hash[:locality] = restaurant["restaurant"]["location"]["locality"]
-    restaurant_hash[:price_range] = restaurant["restaurant"]["price_range"]
-    restaurant_hash[:average_cost_for_two] = restaurant["restaurant"]["average_cost_for_two"]
-    restaurant_hash[:aggregate_rating] = restaurant["restaurant"]["user_rating"]["aggregate_rating"]
-    restaurant_hash[:all_reviews_count] = restaurant["restaurant"]["all_reviews_count"]
-    restaurant_hash[:thumb] = restaurant["restaurant"]["thumb"]
-    restaurant_hash[:featured_image] = restaurant["restaurant"]["featured_image"]
-    restaurant_hash[:neighborhood] = neighborhood
-    final_restaurant = Restaurant.create(restaurant_hash)
-  end
-end
+# Neighborhood.all.each do |neighborhood|
+#   restaurant_hash = {}
+#   test_cuisine = Cuisine.find_by_name("Asian")
+#   search ={}
+#   search[:entity_id] = neighborhood.entity_id
+#   search[:cuisine_id] = test_cuisine.cuisine_id
+#   new_restaurant = Api.search(search)
+#   new_restaurant.each do |restaurant|
+#     restaurant_hash[:url] = restaurant["restaurant"]["url"]
+#     restaurant_hash[:name] = restaurant["restaurant"]["name"]
+#     restaurant_hash[:address] = restaurant["restaurant"]["location"]["address"]
+#     restaurant_hash[:locality] = restaurant["restaurant"]["location"]["locality"]
+#     restaurant_hash[:price_range] = restaurant["restaurant"]["price_range"]
+#     restaurant_hash[:average_cost_for_two] = restaurant["restaurant"]["average_cost_for_two"]
+#     restaurant_hash[:aggregate_rating] = restaurant["restaurant"]["user_rating"]["aggregate_rating"]
+#     restaurant_hash[:all_reviews_count] = restaurant["restaurant"]["all_reviews_count"]
+#     restaurant_hash[:thumb] = restaurant["restaurant"]["thumb"]
+#     restaurant_hash[:featured_image] = restaurant["restaurant"]["featured_image"]
+#     restaurant_hash[:neighborhood] = neighborhood
+#     final_restaurant = Restaurant.create(restaurant_hash)
+#   end
+# end

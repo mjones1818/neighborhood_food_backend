@@ -7,6 +7,9 @@ class RestaurantsController < ApplicationController
       search_params[k.to_sym] = v.to_sym
     end
     restaurants = Api.search(search_params)
+    # byebug
+    neighborhood = Neighborhood.find_by(entity_id: params['entity_id'])
+    restaurants = restaurants.each {|k| k['restaurant']['neighborhood'] = neighborhood}
     Restaurant.create_restaurants(restaurants)
     render json: restaurants
   end
