@@ -10,6 +10,7 @@ Cuisine.destroy_all
 Neighborhood.destroy_all
 Restaurant.destroy_all
 User.destroy_all
+UserRestaurant.destroy_all
 
 #cuisines = JSON.parse(Api.cuisine_request)["cuisines"]
 cuisines = Api.cuisine_request

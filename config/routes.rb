@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show, :new]
   resources :neighborhoods, only: [:index]
   resources :cuisines, only: [:index]
+  patch '/users/:id', to: 'users#liked'
 end
