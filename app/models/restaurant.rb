@@ -7,6 +7,7 @@ class Restaurant < ApplicationRecord
 
   def self.create_restaurants(restaurants)
     restaurant_hash = {}
+    restaurant_return = []
     restaurants.each do |restaurant|
       neighborhood = 
       restaurant_hash[:url] = restaurant["restaurant"]["url"]
@@ -21,6 +22,9 @@ class Restaurant < ApplicationRecord
       restaurant_hash[:featured_image] = restaurant["restaurant"]["featured_image"]
       restaurant_hash[:neighborhood] = restaurant["restaurant"]["neighborhood"]
       final_restaurant = Restaurant.find_or_create_by(restaurant_hash)
+      restaurant['restaurant']['db_id'] = final_restaurant.id
+      restaurant_return << restaurant
     end
+    return restaurant_return
   end
 end

@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
     # byebug
     neighborhood = Neighborhood.find_by(entity_id: params['entity_id'])
     restaurants = restaurants.each {|k| k['restaurant']['neighborhood'] = neighborhood}
-    Restaurant.create_restaurants(restaurants)
+    restaurants = Restaurant.create_restaurants(restaurants)
     render json: restaurants
   end
 
