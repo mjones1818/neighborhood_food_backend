@@ -12,16 +12,44 @@ Restaurant.destroy_all
 User.destroy_all
 UserRestaurant.destroy_all
 
-#cuisines = JSON.parse(Api.cuisine_request)["cuisines"]
+cuisines_array = [
+  "African", "American", "Argentine","Asian", 
+  "BBQ", "Bagels", "Bakery", "Bar Food", "Belgian", "Brazilian", 
+  "Breakfast", "British", "Burger", "Cafe", "Cajun","Cambodian", 
+  "Cantonese", "Caribbean", "Chinese", "Coffee and Tea", "Colombian",
+  "Cuban", "Dim Sum", "Diner", "Dominican",  
+  "Eastern European", "Ecuadorian", "Ethiopian",
+  "Fish and Chips","Fusion", "German", "Greek", "Grill", 
+  "Indian", "Indonesian",
+   "Italian", "Jamaican", "Japanese","Kebab", "Korean", "Latin American", 
+  "Lebanese", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Mongolian", 
+  "Moroccan", "Nepalese",
+  "Pakistani", "Peruvian", "Pizza",  "Polish", 
+  "Portuguese", "Pub Food", "Puerto Rican", "Ramen", "Russian", 
+  "Sandwich", "Scandinavian","Seafood", "Somali", 
+  "Soul Food", "South African","Southern", 
+  "Southwestern", "Spanish", "Steak", "Sushi", "Swedish", "Taco", 
+  "Taiwanese", "Tapas","Teriyaki", "Thai", "Turkish", 
+  "Ukrainian", "Venezuelan", "Vietnamese"
+]
+
 cuisines = Api.cuisine_request
 cuisines.each do |cuisine|
-  cuisine_hash = {}
-  cuisine_hash[:cuisine_id] = cuisine["cuisine"]["cuisine_id"]
-  cuisine_hash[:name] = cuisine["cuisine"]["cuisine_name"]
-  new_cuisine = Cuisine.create(cuisine_hash)
+  if cuisines_array.include?(cuisine["cuisine"]["cuisine_name"])
+    cuisine_hash = {}
+    cuisine_hash[:cuisine_id] = cuisine["cuisine"]["cuisine_id"]
+    cuisine_hash[:name] = cuisine["cuisine"]["cuisine_name"]
+    new_cuisine = Cuisine.create(cuisine_hash)
+  end
 end
 
-neighborhood_list = ["logan square chicago", "ukrainian village", "lakeview chicago", 'west loop chicago', 'uptown chicago']
+neighborhood_list = [
+  "logan square chicago", 
+  "ukrainian village", "lakeview chicago", 
+  'west loop chicago', 'uptown chicago',
+  'lincoln park chicago', 'pilsen chicago',
+  'avondale chicago', 'chinatown chicago'
+]
 neighborhood_list.each do |neighborhood|
   new_neighborhood = Api.neighborhood_request(neighborhood)
   neighborhood_hash = {}
