@@ -21,6 +21,7 @@ class Restaurant < ApplicationRecord
       restaurant_hash[:thumb] = restaurant["restaurant"]["thumb"]
       restaurant_hash[:featured_image] = restaurant["restaurant"]["featured_image"]
       restaurant_hash[:neighborhood] = restaurant["restaurant"]["neighborhood"]
+      restaurant_hash[:cuisine_id] = restaurant['restaurant']['cuisine_id']
       final_restaurant = Restaurant.find_or_create_by(restaurant_hash)
       restaurant['restaurant']['db_id'] = final_restaurant.id
       restaurant_return << restaurant

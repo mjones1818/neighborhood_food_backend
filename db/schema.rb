@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_26_012309) do
+ActiveRecord::Schema.define(version: 2021_01_30_010317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_012309) do
     t.integer "neighborhood_id"
     t.string "thumb"
     t.string "featured_image"
+    t.integer "cuisine_id"
   end
 
   create_table "user_restaurants", force: :cascade do |t|

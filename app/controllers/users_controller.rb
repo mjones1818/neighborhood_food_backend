@@ -2,12 +2,21 @@ class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
   def show
     user = User.find_or_create_by(name: params[:id])
-    render json: user, include: [:user_restaurants]
+    # render json: user, include: [:user_restaurants]
+    render json: user.to_json(:include => {:user_restaurants => 
+      {:include => 
+        :restaurant
+        }
+        })
   end
 
   def create
     user = User.find_or_create_by(name: params[:name])
-    render json: user, include: [:user_restaurants]
+    render json: user.to_json(:include => {:user_restaurants => 
+      {:include => 
+        :restaurant
+        }
+        })
   end
 
   def new 
