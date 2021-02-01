@@ -81,3 +81,28 @@ end
 #     final_restaurant = Restaurant.create(restaurant_hash)
 #   end
 # end
+
+# u1 = User.create(name: "mike")
+# u2 = User.create(name: "maddy")
+# u3 = User.create(name: "joel")
+# u4 = User.create(name: "cameron")
+# u5 = User.create(name: "evan")
+
+# 10.times do
+#   search_params = {cuisine_id: Cuisine.all.sample.cuisine_id.to_s, entity_id: Neighborhood.all.sample.entity_id.to_s }
+#   # byebug
+#   restaurants = Api.search(search_params)
+#   neighborhood = Neighborhood.find_by(entity_id: search_params[:entity_id])
+#   restaurants = restaurants.each {|k| k['restaurant']['neighborhood'] = neighborhood}
+#   restaurants = restaurants.each {|k| k['restaurant']['cuisine_id'] = search_params[:cuisine_id].to_s}
+#   restaurants_results = Restaurant.create_restaurants(restaurants)
+#   # byebug
+# end
+
+# 20.times do
+#   user = User.all.sample
+#   restaurant = Restaurant.all.sample
+#   if !restaurant.user_ids.include?(user.id)
+#     restaurant.users << user
+#   end
+# end
