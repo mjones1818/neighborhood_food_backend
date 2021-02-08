@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :neighborhoods, only: [:index]
   resources :cuisines, only: [:index]
   patch '/users/:id', to: 'users#liked'
+  delete '/restaurants', to: 'restaurants#destroy'
 end

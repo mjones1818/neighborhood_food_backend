@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-
+  skip_before_action :verify_authenticity_token
   def index
     search_params = {}
     result = params.reject {|k,v| k.exclude?('_')}
@@ -22,6 +22,12 @@ class RestaurantsController < ApplicationController
   def new
     @neighborhoods = Neighborhood.all
     @cuisines = Cuisine.all
+  end
+
+  def destroy
+    # byebug
+    restaurants = Restaurant.destroy_all
+    render json: restaurants
   end
 
   private
