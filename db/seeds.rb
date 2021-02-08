@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Cuisine.destroy_all
-Neighborhood.destroy_all
-Restaurant.destroy_all
-User.destroy_all
-UserRestaurant.destroy_all
+Cuisine.delete_all
+Neighborhood.delete_all
+Restaurant.delete_all
+User.delete_all
+UserRestaurant.delete_all
 
 cuisines_array = [
   "African", "American", "Argentine","Asian", 

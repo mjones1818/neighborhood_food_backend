@@ -4,6 +4,14 @@ class Restaurant < ApplicationRecord
   belongs_to :neighborhood
   has_many :user_restaurants
   has_many :users,  through: :user_restaurants
+  before_destroy :abort_if_associated, prepend: true
+
+  def abort_if_associated
+    if !self.users.empty?
+      errors[:base] << 'can not delete restaurant that has an association'
+      throw :abort
+    end
+  end
 
   def self.create_restaurants(restaurants)
     restaurant_hash = {}

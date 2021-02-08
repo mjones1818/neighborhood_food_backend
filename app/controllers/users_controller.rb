@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
   def show
-    user = User.find_or_create_by(name: params[:id])
+    user = User.find_or_create_by(name: params[:id].downcase)
     render json: user.to_json(:include => {:user_restaurants => 
       {:include => 
         :restaurant
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.find_or_create_by(name: params[:name])
+    user = User.find_or_create_by(name: params[:name].downcase)
     render json: user.to_json(:include => {:user_restaurants => 
       {:include => 
         :restaurant

@@ -24,13 +24,6 @@ class RestaurantsController < ApplicationController
     @cuisines = Cuisine.all
   end
 
-  # def create
-  #   Restaurant.destroy_all
-  #   new_restaurant = Api.search(search_params)
-  #   helpers.create_restaurants(new_restaurant,search_params[:entity_id])
-  #   redirect_to restaurants_path
-  # end
-
   private
 
   def search_params
