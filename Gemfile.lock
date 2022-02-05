@@ -114,6 +114,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.1-x86_64-linux)
+      racc (~> 1.4)
     open-uri (0.2.0)
       stringio
       time
@@ -131,6 +133,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack-timeout (0.6.0)
     rails (6.0.4.4)
       actioncable (= 6.0.4.4)
       actionmailbox (= 6.0.4.4)
@@ -223,6 +226,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
@@ -237,6 +241,7 @@ DEPENDENCIES
   pg
   puma (~> 4.1)
   rack-cors
+  rack-timeout
   rails (~> 6.0.3, >= 6.0.3.4)
   sass-rails (>= 6)
   selenium-webdriver
