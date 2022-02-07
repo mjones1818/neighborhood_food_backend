@@ -167,8 +167,6 @@ GEM
     regexp_parser (2.2.0)
     rexml (3.2.5)
     rubyzip (2.3.2)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -244,7 +242,7 @@ DEPENDENCIES
   rack-cors
   rack-timeout
   rails (~> 6.0.3, >= 6.0.3.4)
-  sass-rails (>= 6)
+  sassc-rails
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
